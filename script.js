@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const uploads = document.querySelector('.uploadForm')
     uploads.addEventListener('submit', (e) => {
         e.preventDefault();
+        let deviceObj = {
+            id:document.querySelector('#itemID').value,
+            title:document.querySelector('#itemName').value,
+            image:document.querySelector('#itemImage').value,
+            price:document.querySelector('#itemPrice').value,
+            quantity:document.querySelector('#itemQuantity').value
+        }
+        uploadItems(deviceObj)
         uploads.reset();
     });
 
@@ -87,12 +95,55 @@ function rendering(items) {
         quantity.textContent = `${item.quantity} PIECES LEFT`;
         quantity.classList.add('quantity');
 
+
         productDiv.appendChild(image);
         productDiv.appendChild(id);
         productDiv.appendChild(title);
         productDiv.appendChild(price);
         productDiv.appendChild(quantity);
 
+                
+        const editBtn = document.createElement('button');
+        editBtn.textContent = "EDIT";
+        editBtn.addEventListener('click', () => editItems(item.id));
+        productDiv.appendChild(editBtn);
+
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = "DELETE";
+        deleteBtn.addEventListener('click', () => deleteItems(item.id));
+        productDiv.appendChild(deleteBtn);
+
+
         content.appendChild(productDiv);
+    });
+}
+
+function uploadItems(deviceObj){
+     fetch("http://localhost:3000/items/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body:JSON.stringify(deviceObj),
+     })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => {
+        console.error('Error:', error)
+    });
+}
+function deleteItems(id) {
+    fetch(`http://localhost:3000/items/${id}`, {
+        method: 'DELETE'
+    })
+    .then(() => {
+            devices();
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 }

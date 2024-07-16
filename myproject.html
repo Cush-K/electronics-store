@@ -22,8 +22,8 @@
         <ul class="menuItems">
             <li class="menu"><a href="#">Home</a></li>
             <li class="menu"><a href="#">About</a></li>
-            <li class="menu"><a href="#">Our Products</a></li>
-            <li class="menu"><a href="#">Contact Us</a></li>
+            <li class="menu"><a href="#productDes">Our Products</a></li>
+            <li class="menu"><a href="#footer">Contact Us</a></li>
         </ul>
         <div class="searchForm">
             <form id="search">
@@ -39,10 +39,13 @@
                 <br>
                 <p>Buy all your electronic devices at the same spot!</p>
                 <br>
-                <button type="button" class="skip">Go to Products</button>
+                <a href="#productDes" class="skip" >Go to Products</a>
             </div>
         </header>
         <main id="mainContainer">
+            <div id="productDes">
+                <h1>/Our Products</h1>
+            </div>
             <div class="content">
               
             </div>
@@ -65,6 +68,9 @@
                             <label for="itemPrice">Price</label>
                             <input type="text" placeholder="Price" id="itemPrice" required />
 
+                            <label for="quantity">Quantity</label>
+                            <input type="text" placeholder="quantity" id="itemQuantity" required />
+
                             <nav class="buttons">
                                 <input type="submit" name="post" id="upload" value="UPLOAD" />
                                 <button type="button" class="cancelBtn">CANCEL</button>
@@ -79,7 +85,7 @@
         <div>
             <h3>Contacts</h3>
             <p>Phone: +254 701 234567</p>
-            <p>Email: sales@electronicsstore.com</p>
+            <p>sales@electronicsstore.com</p>
             <p>Text/Whatsapp: +254 701 234567</p>
         </div>
         <div>
