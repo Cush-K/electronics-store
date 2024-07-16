@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+}
+body{
+   width: 100vw;
+   background-image: url(/images/background4.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+.menuNav{
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color:#fff;
+    width: 100vw;
+    position: fixed;
+    z-index: 1;
+    
+}
+.menuNav ul{
+    display: flex;
+    text-align: right;
+}
+.menuNav ul .menu{
+    padding: 0 2em;
+    list-style: none;
+    width:auto;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.menuNav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.menuNav ul .logo{
+    list-style: none;
+}
+.menuNav ul .logo img{
+    width: 12em;
+    height: 5em;
+    padding-right: 3rem;
+    list-style: none;
+}
+.menuNav ul .search{
+   list-style: none;
+}
+.menuNav ul .search input{
+    height: 2em;
+    margin-top: 2em;
+ }
+section{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    
+}
+#mainContainer{
+    border: 1px solid black;
+    width: 70vw;
+    height: 35em;
+    background-color: black;
+    opacity: 80%;
+    position: relative;
+    height: auto;
+    z-index: 0;
+}
+#mainContainer .about{
+    margin-top: 10em;
+}
+#mainContainer div{
+    margin-top: 2em;
+    color: #fff;
+    text-align: center;
+}
+.buttons{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position:relative;
+    float: inline-start;
+   }
+.openForm{
+    width: 10em;
+    height: 3em;
+    background-color: #ffffff;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 2em;
+    &:hover{
+        background-color: rgb(122, 122, 105);
+    }
+}
+.uploadForm{
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(50, 77, 77);
+    height:35em;
+
+}
+.uploadForm input[type="text"]{
+    width: 60%;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+.uploadForm input[type="submit"]{
+    width: 50%;
+    padding: 10px 10px;
+    margin-right: 5em;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color:#06f02d;
+    font-size: 15px;
+    font-weight: bold;
+    &:hover{
+        background-color: greenyellow;
+    }
+}
+.uploadForm label{
+    font-size: 20px;
+    font-weight: bold;
+}
+.popUpForm{
+    display: none;
+    position: relative;
+    bottom: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 1;
+}
+.cancelBtn{
+    background-color: red;
+    width: 50%;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    &:hover{
+        background-color: orange;
+    }
+}
+
