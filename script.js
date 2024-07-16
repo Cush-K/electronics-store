@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
+    const form = document.querySelector('form')
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         form.reset();
+    });
+    const uploads = document.querySelector('.uploadForm')
+    uploads.addEventListener('submit', (e) => {
+        e.preventDefault();
+        uploads.reset();
     });
     openForm();
     closeForm();

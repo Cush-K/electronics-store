@@ -12,14 +12,13 @@ body{
     height: 5em;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #000;
     color:#fff;
     width: 100vw;
     position: fixed;
     z-index: 1;
     padding: 0 1em;
-    
 }
 .menuNav ul{
     display: flex;
@@ -42,8 +41,9 @@ body{
     padding-right: 3rem;
     list-style: none;
 }
-.menuNav ul .search{
-   list-style: none;
+.menuNav .searchForm{
+    margin-right: 3em;
+    list-style: none;
 }
 .menuNav ul .search input[type="text"]{
     height: 2em;
@@ -69,9 +69,42 @@ section{
     margin-top: 10em;
 }
 #mainContainer div{
-    margin-top: 2em;
+    margin-top: 3em;
     color: #fff;
     text-align: center;
+}
+#hero div{
+    margin-top: 5em;
+    color: white;
+    background-color: chocolate;
+    width: 100vw;
+    height: 70vh;
+    background-image: url(/images/background9.jpg);
+    background-size:contain;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#hero h1{
+    font-size: 40px;
+}
+#hero p{
+    font-size:20px;
+}
+.skip{
+    width: 20%;
+    padding: 10px 10px;
+    display: inline-block;
+    border-radius: 2em;
+    cursor: pointer;
+    background-color:#06f02d;
+    font-size: 15px;
+    font-weight: bold;
+    &:hover{
+        background-color: white
+    }
 }
 .buttons{
     display: flex;
@@ -90,7 +123,7 @@ section{
     border-radius: 2em;
     cursor: pointer;
     &:hover{
-        background-color: rgb(122, 122, 105);
+        background-color: rgb(192, 192, 192);
     }
 }
 .uploadForm{
@@ -98,7 +131,7 @@ section{
     flex-direction: column;
     align-items:center;
     justify-content: center;
-    background-color: rgb(59, 105, 105);
+    background-color: rgb(2, 0, 0);
     height:auto;
     width: 100%;
 }
@@ -110,7 +143,7 @@ section{
     border-radius: 1em;
     box-sizing: border-box;
     font-size: 18px;
-    font-family:Georgia, 'Times New Roman', Times, serif
+    font-family:Arial, Helvetica, sans-serif
 }
 .uploadForm input[type="submit"]{
     width: 50%;
@@ -119,11 +152,11 @@ section{
     display: inline-block;
     border-radius: 2em;
     cursor: pointer;
-    background-color:#06f02d;
+    background-color:#ffffff;
     font-size: 15px;
     font-weight: bold;
     &:hover{
-        background-color: greenyellow;
+        background-color: rgb(0, 255, 13);
     }
 }
 .uploadForm label{
@@ -135,12 +168,11 @@ section{
     align-items: center;
     justify-content: center;
     position:relative;
-    border: 2px solid #f1f1f1;
     width: 80%;
     
 }
 .cancelBtn{
-    background-color: red;
+    background-color: rgb(255, 255, 255);
     width: 50%;
     padding: 10px 10px;
     margin: 10px 0px;
@@ -150,7 +182,7 @@ section{
     font-size: 15px;
     font-weight: bold;
     &:hover{
-        background-color: orange;
+        background-color: rgb(255, 0, 0);
     }
 }
 .wholeForm{
@@ -164,7 +196,22 @@ section{
     margin: 0;
     margin-left: 1em;
 }
-
+#footer{
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 15em;
+}
+#footer div{
+    padding:0 4em;
+}
+#footer p{
+    padding-bottom: 1rem;
+    font: bold;
+}
 @media(max-width: 750px){
     .menuNav {
         justify-content: space-between;
@@ -211,6 +258,21 @@ section{
         width: 25px;
         height:3px;
         margin-top: 5px;
+    }
+    #hero div{
+        margin-top: 4em;
+        color: white;
+        background-color: chocolate;
+        width: 100vw;
+    }
+    #hero h1{
+        font-size:calc(200%);
+    }
+    #hero p{
+        font-size:calc(150%);
+    }
+    #footer div{
+        padding:0 1em;
     }
 
 }
