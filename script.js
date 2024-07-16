@@ -7,17 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(res => res.json())
             .then(data => {
                 rendering([data]);
-            //     const image = document.querySelector('.image')
-            //     const id = document.querySelector('.ID');
-            //     const title = document.querySelector('.title');
-            //     const price = document.querySelector('.price');
-            //     const quantity = document.querySelector('.quantity');
-
-            //     image.src = data.image;
-            //     id.textContent = `Product ID: ${data.id}`;
-            //     title.textContent = `Title: ${data.title}`;
-            //     price.textContent = `Price: ${data.price}`;
-            //     quantity.textContent = `${data.quantity} PIECES LEFT`;
             });
         e.preventDefault();
         form.reset();
@@ -73,7 +62,7 @@ function devices(){
 function rendering(items) {
     const content = document.querySelector('.content');
     content.textContent = '';
-    
+
     items.forEach(item => {
         const productDiv = document.createElement('div');
         productDiv.classList.add('product');
@@ -87,7 +76,7 @@ function rendering(items) {
         id.classList.add('ID');
 
         const title = document.createElement('h3');
-        title.textContent = `Title: ${item.title}`;
+        title.textContent = item.title;
         title.classList.add('title');
 
         const price = document.createElement('p');
