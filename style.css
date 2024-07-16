@@ -212,6 +212,19 @@ section{
     padding-bottom: 1rem;
     font: bold;
 }
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5em;
+}
+.content div{
+    text-align: left;
+}
+.content img{
+    width: 15em;
+    height: 20em;
+}
 @media(max-width: 750px){
     .menuNav {
         justify-content: space-between;
@@ -271,8 +284,27 @@ section{
     #hero p{
         font-size:calc(150%);
     }
+    .content img{
+        width: 7em;
+        height: 11em;
+    }
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 1em;
+    }
     #footer div{
-        padding:0 1em;
+       padding: 0 .5em;
+    }
+    #footer{
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        height: auto;
     }
 
 }
