@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js" defer></script>
     <title>Electronics Store</title>
 </head>
+
 <body>
-   <nav class="menuNav">
-    <ul>
-        <li class="logo"><img src="/images/logo.png" alt="store logo"></li>
-        <li class="menu"><a href="#">Home</a></li>
-        <li class="menu"><a href="#">About</a></li>
-        <li class="menu"><a href="#">Our Products</a></li>
-        <li class="menu"><a href="#">Contact Us</a></li>
-        <li class="search">
+    <nav class="menuNav">
+        <div class="burger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="logo">
+            <img src="/images/logo.png" alt="store logo">
+        </div>
+        <ul class="menuItems">
+            <li class="menu"><a href="#">Home</a></li>
+            <li class="menu"><a href="#">About</a></li>
+            <li class="menu"><a href="#">Our Products</a></li>
+            <li class="menu"><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="searchForm">
             <form id="search">
-                <input type="text" placeholder="Search by ID"/>
-                <input type="submit" value="Search"/>
+                <input type="text" placeholder="Search by ID" />
+                <input type="submit" value="Search" />
             </form>
-        </li>
-    </ul>
-   </nav>
-   <section>
+        </div>
+    </nav>
+    <section>
         <main id="mainContainer">
             <div>
                 <div class="about">
@@ -31,43 +40,36 @@
                     <p>Shop for everything at the same spot!</p>
                 </div>
                 <div>
-                    <button class="openForm" onclick="openUploadBtn()">UPLOAD</button>
+                    <button class="openForm">UPLOAD</button>
                 </div>
                 <div class="wholeForm">
-                <div class="popUpForm" id="myForm">
-                    <form class="uploadForm">
-                        <label for="itemID">Item ID</label>
-                        <input type="text" placeholder="Item ID" id="itemID" required/>
+                    <div class="popUpForm" id="myForm">
+                        <form class="uploadForm">
+                            <label for="itemID">Item ID</label>
+                            <input type="text" placeholder="Item ID" id="itemID" required />
 
-                        <label for="itemName">Item Name</label>
-                        <input type="text" placeholder="Item Name" id="itemName" required/>
-                        
-                        <label for="itemDescription">Item Description</label>
-                        <input type="text" placeholder="Description" id="itemDescription" required/>
-                        
-                        <label for="itemImage">Link to Image</label>
-                        <input type="text" placeholder="Image" id="itemImage" required/>
-                        
-                        <label for="itemPrice">Price</label>
-                        <input type="text" placeholder="Price" id="itemPrice" required/>
-                      
-                        <nav class="buttons">
-                            <input type="submit" name="post" id="upload" value="UPLOAD"/>
-                            <button type="button" class="cancelBtn" onclick="closeForm()">CANCEL</button>
-                        </nav>
-                    </form>
-                </div>
+                            <label for="itemName">Item Name</label>
+                            <input type="text" placeholder="Item Name" id="itemName" required />
+
+                            <label for="itemDescription">Item Description</label>
+                            <input type="text" placeholder="Description" id="itemDescription" required />
+
+                            <label for="itemImage">Link to Image</label>
+                            <input type="text" placeholder="Image" id="itemImage" required />
+
+                            <label for="itemPrice">Price</label>
+                            <input type="text" placeholder="Price" id="itemPrice" required />
+
+                            <nav class="buttons">
+                                <input type="submit" name="post" id="upload" value="UPLOAD" />
+                                <button type="button" class="cancelBtn">CANCEL</button>
+                            </nav>
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
-   </section>
-    <script>
-function openUploadBtn(){
-   document.querySelector('#myForm').style.display = "block";
-   }
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-    }
-    </script>
+    </section>
 </body>
+
 </html>

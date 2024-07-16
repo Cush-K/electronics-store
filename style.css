@@ -18,31 +18,25 @@ body{
     width: 100vw;
     position: fixed;
     z-index: 1;
+    padding: 0 1em;
     
 }
 .menuNav ul{
     display: flex;
-    text-align: right;
+    
 }
 .menuNav ul .menu{
     padding: 0 2em;
     list-style: none;
     width:auto;
     font-size: large;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
 }
 .menuNav ul li a{
     color: #fff;
     text-decoration: none;
 }
-.menuNav ul .logo{
-    list-style: none;
-}
-.menuNav ul .logo img{
+
+.menuNav .logo img{
     width: 12em;
     height: 5em;
     padding-right: 3rem;
@@ -51,7 +45,7 @@ body{
 .menuNav ul .search{
    list-style: none;
 }
-.menuNav ul .search input{
+.menuNav ul .search input[type="text"]{
     height: 2em;
     margin-top: 2em;
  }
@@ -70,7 +64,6 @@ section{
     opacity: 80%;
     position: relative;
     height: auto;
-    z-index: 0;
 }
 #mainContainer .about{
     margin-top: 10em;
@@ -138,7 +131,7 @@ section{
     font-weight: bold;
 }
 .popUpForm{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position:relative;
@@ -160,8 +153,64 @@ section{
         background-color: orange;
     }
 }
-
 .wholeForm{
     display: flex;
     justify-content: center;
+}
+.burger-menu div{
+    width: 25px;
+    height:px;
+    background-color: white;
+    margin: 0;
+    margin-left: 1em;
+}
+
+@media(max-width: 750px){
+    .menuNav {
+        justify-content: space-between;
+        height: 4em;
+        width: 100vw;
+        }
+    .menuNav ul .menu{
+        display: none;
+    }
+    .menuNav .logo img{
+        display: none;
+        margin-top: 0;
+        width: 8em;
+        height: 4em;
+        padding-right: 3rem;
+        list-style: none;
+    }
+    .menuNav ul .search{
+       list-style: none;
+    }
+    .menuNav .searchForm{
+        margin-right: 2em;
+    }
+    #search input[type="text"]{
+        height: 2em;
+        width: 10em;
+
+    }
+    #mainContainer{
+        width: 100vw;
+    }
+    .menuItems {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 4em;
+        left: 0;
+        width: 25%;
+        background-color: #000;
+
+    }
+    .burger-menu div{
+        display: block;
+        width: 25px;
+        height:3px;
+        margin-top: 5px;
+    }
+
 }
