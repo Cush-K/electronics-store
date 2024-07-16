@@ -95,6 +95,7 @@ section{
     font-size: 15px;
     font-weight: bold;
     border-radius: 2em;
+    cursor: pointer;
     &:hover{
         background-color: rgb(122, 122, 105);
     }
@@ -102,17 +103,18 @@ section{
 .uploadForm{
     display:flex ;
     flex-direction: column;
-    align-items: center;
-    background-color: rgb(50, 77, 77);
-    height:35em;
-
+    align-items:center;
+    justify-content: center;
+    background-color: rgb(59, 105, 105);
+    height:auto;
+    width: 100%;
 }
 .uploadForm input[type="text"]{
     width: 60%;
     padding: 10px 10px;
     margin: 10px 0px;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 1em;
     box-sizing: border-box;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif
@@ -122,7 +124,7 @@ section{
     padding: 10px 10px;
     margin-right: 5em;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 2em;
     cursor: pointer;
     background-color:#06f02d;
     font-size: 15px;
@@ -136,11 +138,13 @@ section{
     font-weight: bold;
 }
 .popUpForm{
-    display: none;
-    position: relative;
-    bottom: 0;
-    border: 3px solid #f1f1f1;
-    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    border: 2px solid #f1f1f1;
+    width: 80%;
+    
 }
 .cancelBtn{
     background-color: red;
@@ -148,7 +152,7 @@ section{
     padding: 10px 10px;
     margin: 10px 0px;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 2em;
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
@@ -157,3 +161,7 @@ section{
     }
 }
 
+.wholeForm{
+    display: flex;
+    justify-content: center;
+}

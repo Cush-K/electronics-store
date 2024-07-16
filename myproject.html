@@ -32,22 +32,24 @@
                 </div>
                 <div>
                     <button class="openForm" onclick="openUploadBtn()">UPLOAD</button>
+                </div>
+                <div class="wholeForm">
                 <div class="popUpForm" id="myForm">
                     <form class="uploadForm">
                         <label for="itemID">Item ID</label>
-                        <input type="text" placeholder="Item ID" id="itemID"/>
+                        <input type="text" placeholder="Item ID" id="itemID" required/>
 
                         <label for="itemName">Item Name</label>
-                        <input type="text" placeholder="Item Name" id="itemName"/>
+                        <input type="text" placeholder="Item Name" id="itemName" required/>
                         
                         <label for="itemDescription">Item Description</label>
-                        <input type="text" placeholder="Description" id="itemDescription"/>
+                        <input type="text" placeholder="Description" id="itemDescription" required/>
                         
                         <label for="itemImage">Link to Image</label>
-                        <input type="text" placeholder="Image" id="itemImage"/>
+                        <input type="text" placeholder="Image" id="itemImage" required/>
                         
                         <label for="itemPrice">Price</label>
-                        <input type="text" placeholder="Price" id="itemPrice"/>
+                        <input type="text" placeholder="Price" id="itemPrice" required/>
                       
                         <nav class="buttons">
                             <input type="submit" name="post" id="upload" value="UPLOAD"/>
