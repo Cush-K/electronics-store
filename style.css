@@ -7,6 +7,7 @@ body{
    background-size: cover;
    background-repeat: no-repeat;
    background-attachment: fixed;
+   font-family: Arial, Helvetica, sans-serif;
 }
 .menuNav{
     height: 5em;
@@ -90,7 +91,7 @@ section{
     color: white;
     background-color: chocolate;
     width: 100vw;
-    height: 70vh;
+    height: 80vh;
     background-image: url(/images/background9.jpg);
     background-size:contain;
     background-repeat: repeat;
@@ -155,7 +156,7 @@ section{
     border-radius: 1em;
     box-sizing: border-box;
     font-size: 18px;
-    font-family:Arial, Helvetica, sans-serif
+    font-family:Arial, Helvetica, sans-serif;
 }
 .uploadForm input[type="submit"]{
     width: 50%;
@@ -208,27 +209,16 @@ section{
     margin: 0;
     margin-left: 1em;
 }
-#footer{
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 12em;
-}
-#footer div{
-    padding:0 4em;
-}
-#footer p{
-    padding-bottom: 1rem;
-    font: bold;
-}
 .content{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 1em;
+}
+.edit-form{
+    z-index: 2;
+    position: fixed;
+    top: 50%;
 }
 .product {
     border: 1px solid #ccc;
@@ -282,6 +272,22 @@ section{
     &:hover{
         background-color: red;
     }
+}
+#footer{
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 12em;
+}
+#footer div{
+    padding:0 4em;
+}
+#footer p{
+    padding-bottom: 1rem;
+    font: bold;
 }
 @media(max-width: 750px){
     .menuNav {
