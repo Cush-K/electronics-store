@@ -106,7 +106,7 @@ function rendering(items) {
         const editBtn = document.createElement('button');
         editBtn.classList.add("edit-btn")
         editBtn.textContent = "EDIT";
-        editBtn.addEventListener('click', () => editItems(item))
+        editBtn.addEventListener('click', () => editItems(item, productDiv))
         productDiv.appendChild(editBtn);
 
         
@@ -131,7 +131,8 @@ function uploadItems(deviceObj){
      })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        console.log(data);
+        devices();
     })
     .catch(error => {
         console.error('Error:', error)
@@ -148,8 +149,12 @@ function deleteItems(id) {
         console.error('Error:', error);
     });
 }
-function editItems(item){
-    const body = document.querySelector('#mainContainer')
+function editItems(item, productDiv){
+    const existingForm = document.querySelector('.edit-form');
+    if(existingForm){
+        existingForm.remove();
+    }
+
     const editForm = document.createElement('form');
     editForm.classList.add("edit-form")
     editForm.innerHTML = `  <label for="itemID">Item ID</label>
@@ -159,42 +164,54 @@ function editItems(item){
                             <input type="text" value=${item.title} id="editItemName" required />
 
                             <label for="itemImage">Link to Image</label>
-                            <input type="text" placeholder="Image" id="editItemImage" required />
+                            <input type="text" value=${item.image} id="editItemImage" required />
 
                             <label for="itemPrice">Price</label>
-                            <input type="text" placeholder="Price" id="editItemPrice" required />
+                            <input type="text" value=${item.price} id="editItemPrice" required />
 
                             <label for="quantity">Quantity</label>
-                            <input type="text" placeholder="quantity" id="editItemQuantity" required />
+                            <input type="text" value=${item.quantity} id="editItemQuantity" required />
 
-                            <input type="submit" name="post" id="edit" value="UPLOAD" />`
-            console.log(editForm)
-    body.appendChild(editForm);
+                            <nav class="buttons">
+                            <input type="submit" value="SAVE" />
+                            <button type="button" class="cancelEditBtn">CANCEL</button>
+                            </nav>`
+    
+    productDiv.appendChild(editForm);
+    
     editForm.addEventListener('submit', (e)=>{
         e.preventDefault();
-        let deviceObj = {
+
+        const deviceObjEdit = {
             id:document.querySelector('#editItemID').value,
             title:document.querySelector('#editItemName').value,
             image:document.querySelector('#editItemImage').value,
             price:document.querySelector('#editItemPrice').value,
             quantity:document.querySelector('#editItemQuantity').value
         }
-            editForm.style.display = "none"          
         
-    
         fetch(`http://localhost:3000/items/${item.id}`, {
-        method: 'PUT',
-        headers:{
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(deviceObj)
-        })
-        // .then(res => res.json())
-        // .then
-    })    
+            method: 'PUT',
+            headers:{
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(deviceObjEdit)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                devices();
+            })
+            .catch(error => {
+                console.error('Error:', error)
+            });
+});
+    const cancelEditBtn = editForm.querySelector('.cancelEditBtn');
+    cancelEditBtn.addEventListener('click', () => {
+        editForm.remove();
+    });
 
+    productDiv.appendChild(editForm);
 
-
-   
 }
