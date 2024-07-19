@@ -34,6 +34,9 @@ body{
 .menuNav ul li a{
     color: #fff;
     text-decoration: none;
+    &:hover{
+        color:#15ff00;
+    }
 }
 .menuNav .logo img{
     width: 12em;
