@@ -1,4 +1,7 @@
+//Make sure the script only loads after all the content has loaded
 document.addEventListener('DOMContentLoaded', () => {
+
+    //Adds an event listener to the search form
     const form = document.querySelector('#search')
     form.addEventListener('submit', (e) => {
         const input = document.querySelector('input#searchByID').value;
@@ -12,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
     });
 
+    //Adds an event listener to the uploads form
     const uploads = document.querySelector('.uploadForm')
     uploads.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -38,6 +42,8 @@ const formPopup = document.querySelector('#myForm');
 const burger = document.querySelector('.burger-menu');
 const menuItems = document.querySelectorAll('.menu')
 
+
+//toggle between showing and hiding the upload form
 function openForm() {
     openFormButton.addEventListener('click', () => {
         formPopup.style.display = 'flex';
@@ -61,6 +67,8 @@ function toggleMenu() {
         });
     });
 }
+
+//The GET functionality to render items on the DOM from the JSON
 function devices(){
     fetch("http://localhost:3000/items/")
     .then(res => res.json())
@@ -102,14 +110,14 @@ function rendering(items) {
         productDiv.appendChild(price);
         productDiv.appendChild(quantity);
 
-                
+       //Creates the edit button
         const editBtn = document.createElement('button');
         editBtn.classList.add("edit-btn")
         editBtn.textContent = "EDIT";
         editBtn.addEventListener('click', () => editItems(item, productDiv))
         productDiv.appendChild(editBtn);
 
-        
+        //Creates the delete button
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = "DELETE";
         deleteBtn.addEventListener('click', () => deleteItems(item.id));
@@ -120,6 +128,7 @@ function rendering(items) {
     });
 }
 
+//The POST funtion for Creating items into the JSON using the upload form
 function uploadItems(deviceObj){
      fetch("http://localhost:3000/items/", {
         method: "POST",
@@ -138,6 +147,8 @@ function uploadItems(deviceObj){
         console.error('Error:', error)
     });
 }
+
+//The DELETE function to destroy records from the JSON
 function deleteItems(id) {
     fetch(`http://localhost:3000/items/${id}`, {
         method: 'DELETE'
@@ -149,12 +160,9 @@ function deleteItems(id) {
         console.error('Error:', error);
     });
 }
-function editItems(item, productDiv){
-    const existingForm = document.querySelector('.edit-form');
-    if(existingForm){
-        existingForm.remove();
-    }
 
+//Creates the Edit form
+function editItems(item, productDiv){
     const editForm = document.createElement('form');
     editForm.classList.add("edit-form")
     editForm.innerHTML = `  <label for="itemID">Item ID</label>
@@ -189,7 +197,8 @@ function editItems(item, productDiv){
             price:document.querySelector('#editItemPrice').value,
             quantity:document.querySelector('#editItemQuantity').value
         }
-        
+      
+        //The PUT function to update items in the JSON usin the edit form
         fetch(`http://localhost:3000/items/${item.id}`, {
             method: 'PUT',
             headers:{
@@ -207,6 +216,8 @@ function editItems(item, productDiv){
                 console.error('Error:', error)
             });
 });
+
+//Adds event listener to the cancel button of the edit form
     const cancelEditBtn = editForm.querySelector('.cancelEditBtn');
     cancelEditBtn.addEventListener('click', () => {
         editForm.remove();
