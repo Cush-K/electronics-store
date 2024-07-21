@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         uploadItems(deviceObj)
         uploads.reset();
+        uploads.remove();
     });
 
     openForm();
