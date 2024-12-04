@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         const input = document.querySelector('input#searchByID').value;
            
-            fetch(`http://localhost:3000/items/${input}`)
+            fetch(`http://127.0.0.1:5555/api/items/${input}`)
             .then(res => res.json())
             .then(data => {
                 rendering([data]);
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     uploads.addEventListener('submit', (e) => {
         e.preventDefault();
         let deviceObj = {
-            id:document.querySelector('#itemID').value,
             title:document.querySelector('#itemName').value,
             image:document.querySelector('#itemImage').value,
             price:document.querySelector('#itemPrice').value,
@@ -71,7 +70,7 @@ function toggleMenu() {
 
 //The GET functionality to render items on the DOM from the JSON
 function devices(){
-    fetch("http://localhost:3000/items/")
+    fetch("http://127.0.0.1:5555/api/items")
     .then(res => res.json())
     .then(data => rendering(data));
 }
@@ -97,7 +96,7 @@ function rendering(items) {
         title.classList.add('title');
 
         const price = document.createElement('p');
-        price.textContent = `Price: ${item.price}`;
+        price.textContent = `Price: Sh. ${item.price}`;
         price.classList.add('price');
 
         const quantity = document.createElement('p');
@@ -131,7 +130,7 @@ function rendering(items) {
 
 //The POST funtion for Creating items into the JSON using the upload form
 function uploadItems(deviceObj){
-     fetch("http://localhost:3000/items/", {
+     fetch("http://127.0.0.1:5555/api/items", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -151,7 +150,7 @@ function uploadItems(deviceObj){
 
 //The DELETE function to destroy records from the JSON
 function deleteItems(id) {
-    fetch(`http://localhost:3000/items/${id}`, {
+    fetch(`http://127.0.0.1:5555/api/items/${id}`, {
         method: 'DELETE'
     })
     .then(() => {
@@ -166,10 +165,7 @@ function deleteItems(id) {
 function editItems(item, productDiv){
     const editForm = document.createElement('form');
     editForm.classList.add("edit-form")
-    editForm.innerHTML = `  <label for="itemID">Item ID</label>
-                            <input type="text" value=${item.id} id="editItemID" required />
-
-                            <label for="itemName">Item Name</label>
+    editForm.innerHTML = `  <label for="itemName">Item Name</label>
                             <input type="text" value=${item.title} id="editItemName" required />
 
                             <label for="itemImage">Link to Image</label>
@@ -192,7 +188,6 @@ function editItems(item, productDiv){
         e.preventDefault();
 
         const deviceObjEdit = {
-            id:document.querySelector('#editItemID').value,
             title:document.querySelector('#editItemName').value,
             image:document.querySelector('#editItemImage').value,
             price:document.querySelector('#editItemPrice').value,
@@ -200,7 +195,7 @@ function editItems(item, productDiv){
         }
       
         //The PUT function to update items in the JSON usin the edit form
-        fetch(`http://localhost:3000/items/${item.id}`, {
+        fetch(`http://127.0.0.1:5555/api/items/${item.id}`, {
             method: 'PUT',
             headers:{
                 "Content-Type": "application/json",

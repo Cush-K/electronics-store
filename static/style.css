@@ -3,7 +3,7 @@
 }
 body{
    width: 100vw;
-   background-image: url(/images/background4.jpg);
+   background-image: url(/static/images/background4.jpg);
    background-size: cover;
    background-repeat: no-repeat;
    background-attachment: fixed;
@@ -104,7 +104,7 @@ section{
     background-color: chocolate;
     width: 100vw;
     height: 80vh;
-    background-image: url(/images/background9.jpg);
+    background-image: url(/static/images/background9.jpg);
     background-size:contain;
     background-repeat: repeat;
     display: flex;
