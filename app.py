@@ -1,4 +1,4 @@
-from flask import Flask, make_response, request, send_from_directory
+from flask import Flask, make_response, request, send_from_directory, render_template
 from models import db, Item
 from flask_cors import CORS
 from flask_migrate import Migrate
@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI') #'sqlite:///inventory.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -19,6 +19,12 @@ migrate = Migrate(app,db)
 api = Api(app)
 
 db.init_app(app)
+
+
+@app.route('/')
+def home():
+    return render_template('myproject.html')
+
 
 @app.route('/api')
 def index():
