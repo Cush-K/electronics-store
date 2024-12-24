@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__, static_folder='static')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI') #'sqlite:///inventory.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL') #'sqlite:///inventory.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['JSONIFY_PRETTYPRINT_REGULAR']=True
